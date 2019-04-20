@@ -16,14 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from student import views
-from student.views import get_html
-
+from student.views import (
+    StudentListView,
+    StudentDetailView,
+    StudentCreateView,
+    StudentUpdateView,
+    StudentDeleteView
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('student/get', views.get_student, name='get_student'),
-    path('student/delete', views.delete_student, name='delete_student'),
-    path('student/put', views.put_student, name='put_student'),
-    path('student/post', views.post_student, name='post_student'),
-    path('student/html', get_html , name="get_html"),
+    path('', StudentListView.as_view(), name='blog-home'),
+    path('student/<int:pk>/', StudentDetailView.as_view(), name='student-detail'),
+    path('student/new/', StudentCreateView.as_view(), name='student-create'),
+    path('student/<int:pk>/update/', StudentUpdateView.as_view(), name='student-update'),
+    path('student/<int:pk>/delete/', StudentDeleteView.as_view(), name='student-delete'),
+    path('about/', views.about, name='blog-about'),
 ]
