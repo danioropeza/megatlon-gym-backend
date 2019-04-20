@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+import json 
 
 class Student(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False)
@@ -9,6 +10,3 @@ class Student(models.Model):
     name = models.CharField(max_length=20, null=True)
     age = models.IntegerField(default=20, null=True)
     roll_number = models.CharField(max_length=20, null=True)
-
-    def __str__(self):
-        return self.name

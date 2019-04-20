@@ -20,5 +20,8 @@ from student import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('odm', views.home, name='home'),
+    path('student/get', views.get_student, name='get_student'),
+    path('student/delete', views.delete_student, name='delete_student'),
+    path('student/put', views.put_student, name='put_student'),
+    path('student/post', views.post_student, name='post_student'),
 ]
