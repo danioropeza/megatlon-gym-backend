@@ -32,3 +32,5 @@ def put_student(request):
 def post_student(request):
     student = Student.objects.create(name="Ernesto", age=10, roll_number="Empleado")
     return HttpResponse("student posted successfully!")
+def get_html(request):
+    return render(request, 'index.html')

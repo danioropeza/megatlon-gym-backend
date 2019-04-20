@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from student import views
+from student.views import get_html
 
 
 urlpatterns = [
@@ -24,4 +25,5 @@ urlpatterns = [
     path('student/delete', views.delete_student, name='delete_student'),
     path('student/put', views.put_student, name='put_student'),
     path('student/post', views.post_student, name='post_student'),
+    path('student/html', get_html , name="get_html"),
 ]
