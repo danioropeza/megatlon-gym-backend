@@ -21,7 +21,12 @@ from student.views import (
     StudentDetailView,
     StudentCreateView,
     StudentUpdateView,
-    StudentDeleteView
+    StudentDeleteView,
+    StudentCreateAPIView,
+    StudentListAPIView,
+    StudentDetailAPIView,
+    StudentUpdateAPIView,
+    StudentDeleteAPIView
 )
 
 urlpatterns = [
@@ -32,4 +37,10 @@ urlpatterns = [
     path('student/<int:pk>/update/', StudentUpdateView.as_view(), name='student-update'),
     path('student/<int:pk>/delete/', StudentDeleteView.as_view(), name='student-delete'),
     path('about/', views.about, name='blog-about'),
+
+    path('api/student/new', StudentCreateAPIView.as_view(), name='create'),
+    path('api/students/', StudentListAPIView.as_view(), name='list'),
+    path('api/student/<int:pk>/', StudentDetailAPIView.as_view(), name='detail'),
+    path('api/student/<int:pk>/update/', StudentUpdateAPIView.as_view(), name='update'),
+    path('api/student/<int:pk>/delete/', StudentDeleteAPIView.as_view(), name='delete'),
 ]
