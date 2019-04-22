@@ -1,18 +1,3 @@
-"""mongo_project URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from student import views
@@ -26,7 +11,9 @@ from student.views import (
     StudentListAPIView,
     StudentDetailAPIView,
     StudentUpdateAPIView,
-    StudentDeleteAPIView
+    StudentDeleteAPIView,
+    StudentListAPIView2,
+    StudentAPIView2,
 )
 
 urlpatterns = [
@@ -43,4 +30,7 @@ urlpatterns = [
     path('api/student/<int:pk>/', StudentDetailAPIView.as_view(), name='detail'),
     path('api/student/<int:pk>/update/', StudentUpdateAPIView.as_view(), name='update'),
     path('api/student/<int:pk>/delete/', StudentDeleteAPIView.as_view(), name='delete'),
+
+    path('api2/students/', StudentListAPIView2.as_view(), name='students-api2'),
+    path('api2/student/<int:pk>/', StudentAPIView2.as_view(), name='student-detail-api2'),
 ]
