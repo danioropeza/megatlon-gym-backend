@@ -16,6 +16,14 @@ from student.views import (
     StudentAPIView2,
 )
 
+from client.views import (
+    ClientCreateAPI,
+    ClientListAPI,
+    ClientDetailAPI,
+    ClientUpdateAPI,
+    ClientDeleteAPI
+)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', StudentListView.as_view(), name='blog-home'),
@@ -33,4 +41,12 @@ urlpatterns = [
 
     path('api2/students/', StudentListAPIView2.as_view(), name='students-api2'),
     path('api2/student/<int:pk>/', StudentAPIView2.as_view(), name='student-detail-api2'),
+
+    #Integracion clase Client
+
+    path('api/client/new', ClientCreateAPI.as_view(), name='create-client'),
+    path('api/clients/', ClientListAPI.as_view(), name='list-client'),
+    path('api/client/<int:pk>/', ClientDetailAPI.as_view(), name='detail-client'),
+    path('api/client/<int:pk>/update/', ClientUpdateAPI.as_view(), name='update-client'),
+    path('api/client/<int:pk>/delete/', ClientDeleteAPI.as_view(), name='delete-client'),
 ]
